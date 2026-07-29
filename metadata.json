@@ -1,0 +1,6 @@
+{
+  "name": "Pontos de Venda - APAE",
+  "description": "Encontre pontos de venda das cartelas do Show de Prêmios Beneficente da APAE de Santa Maria de Itabira.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
