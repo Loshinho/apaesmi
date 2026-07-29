@@ -1,20 +1,44 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Pontos de Venda - APAE
 
-# Run and deploy your AI Studio app
+Sistema de gerenciamento e visualização de pontos de venda para a APAE.
 
-This contains everything you need to run your app locally.
+## Descrição
 
-View your app in AI Studio: https://ai.studio/apps/5b24258b-db37-4180-912c-0c389c94e35a
+Este aplicativo permite que os usuários visualizem os pontos de venda disponíveis, pesquisem por localização e acessem um painel administrativo para gerenciar esses pontos.
 
-## Run Locally
+## Tecnologias Utilizadas
 
-**Prerequisites:**  Node.js
+- **React** com **TypeScript**
+- **Vite**
+- **Firebase** (Firestore)
+- **Tailwind CSS**
+- **Framer Motion** (Motion)
+- **Lucide React** (Ícones)
 
+## Como Executar Localmente
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Pré-requisitos
+
+- Node.js instalado
+
+### Instalação
+
+1. Clone o repositório
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Configure as variáveis de ambiente:
+   - Crie um arquivo `.env.local` baseado no `.env.example`
+   - Adicione suas chaves do Firebase e da Gemini API
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+
+## Estrutura do Projeto
+
+- `src/components`: Componentes da interface do usuário
+- `src/firebase.ts`: Configuração do Firebase
+- `src/types.ts`: Definições de tipos TypeScript
+- `firestore.rules`: Regras de segurança do Firestore
