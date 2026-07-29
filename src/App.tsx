@@ -10,57 +10,24 @@ import { Lock } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'motion/react';
 
 function Background() {
-  const { scrollY } = useScroll();
-  const yBase = useTransform(scrollY, [0, 1500], [0, -1000]);
-
   return (
     <div className="fixed inset-0 z-0 overflow-hidden bg-gradient-to-br from-[#1E9E49] via-[#157936] to-[#0A471D]">
-      <motion.div 
-        style={{ y: yBase }}
-        className="absolute top-[10%] left-[-10%] w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none"
-      />
-      <motion.div 
-        style={{ y: yBase }}
-        className="absolute top-[80%] right-[-10%] w-[500px] h-[500px] bg-yellow-400/5 rounded-full blur-3xl pointer-events-none"
-      />
+      <div className="absolute top-[20%] left-[-10%] w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-[80%] right-[-10%] w-[500px] h-[500px] bg-yellow-400/5 rounded-full blur-3xl pointer-events-none" />
+
       {/* Pattern overlay */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-30 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-20 pointer-events-none"></div>
 
-      {/* Parallax Cars */}
-      {/* Left Side Cars (Mirrored) */}
-      <motion.img 
-        style={{ y: yBase }}
+      {/* Decorative Cars - Static and Optimized */}
+      <img
         src="https://i.ibb.co/wNkH3qB1/mobi.png" 
-        className="absolute top-[5%] -left-[10%] w-72 md:w-80 lg:w-[350px] opacity-100 scale-x-[-1] pointer-events-none drop-shadow-2xl" 
-        alt="Fiat Mobi"
+        className="absolute top-[15%] -left-[10%] w-64 md:w-80 opacity-20 scale-x-[-1] pointer-events-none blur-[1px]"
+        alt=""
       />
-      <motion.img 
-        style={{ y: yBase }}
+      <img
         src="https://i.ibb.co/wNkH3qB1/mobi.png" 
-        className="absolute top-[65%] -left-[15%] w-80 md:w-96 lg:w-[400px] opacity-100 scale-x-[-1] pointer-events-none drop-shadow-2xl" 
-        alt="Fiat Mobi"
-      />
-
-      {/* Right Side Cars */}
-      <motion.img 
-        style={{ y: yBase }}
-        src="https://i.ibb.co/wNkH3qB1/mobi.png" 
-        className="absolute top-[35%] -right-[5%] w-64 md:w-72 lg:w-[350px] opacity-100 pointer-events-none drop-shadow-2xl" 
-        alt="Fiat Mobi"
-      />
-      <motion.img 
-        style={{ y: yBase }}
-        src="https://i.ibb.co/wNkH3qB1/mobi.png" 
-        className="absolute top-[95%] -right-[10%] w-72 md:w-80 lg:w-[450px] opacity-100 pointer-events-none drop-shadow-2xl" 
-        alt="Fiat Mobi"
-      />
-      
-      {/* Bottom Right Hero Car (Toro) */}
-      <motion.img 
-        style={{ y: yBase }}
-        src="https://i.ibb.co/3YGjm5jD/hero-176.png" 
-        className="absolute top-[135%] -right-[5%] w-[400px] md:w-[500px] lg:w-[600px] opacity-100 pointer-events-none drop-shadow-2xl" 
-        alt="Fiat Toro"
+        className="absolute top-[60%] -right-[10%] w-72 md:w-96 opacity-20 pointer-events-none blur-[1px]"
+        alt=""
       />
     </div>
   );
@@ -136,9 +103,9 @@ export default function App() {
       <Background />
       
       <motion.div 
-        initial={{ opacity: 0, scale: 0.98, filter: 'blur(5px)' }}
-        animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
         className="relative z-10 flex-1 flex flex-col w-full"
       >
         <Header />
