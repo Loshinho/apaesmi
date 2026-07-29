@@ -11,24 +11,9 @@ import { motion, useScroll, useTransform } from 'motion/react';
 
 function Background() {
   return (
-    <div className="fixed inset-0 z-0 overflow-hidden bg-gradient-to-br from-[#1E9E49] via-[#157936] to-[#0A471D]">
-      <div className="absolute top-[20%] left-[-10%] w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-[80%] right-[-10%] w-[500px] h-[500px] bg-yellow-400/5 rounded-full blur-3xl pointer-events-none" />
-
-      {/* Pattern overlay */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-20 pointer-events-none"></div>
-
-      {/* Decorative Cars - Static and Optimized */}
-      <img
-        src="https://i.ibb.co/wNkH3qB1/mobi.png" 
-        className="absolute top-[15%] -left-[10%] w-64 md:w-80 opacity-20 scale-x-[-1] pointer-events-none blur-[1px]"
-        alt=""
-      />
-      <img
-        src="https://i.ibb.co/wNkH3qB1/mobi.png" 
-        className="absolute top-[60%] -right-[10%] w-72 md:w-96 opacity-20 pointer-events-none blur-[1px]"
-        alt=""
-      />
+    <div className="fixed inset-0 z-0 bg-[#1E9E49]">
+      {/* Pattern overlay suave */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-10 pointer-events-none"></div>
     </div>
   );
 }
