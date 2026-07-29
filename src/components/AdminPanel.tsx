@@ -169,6 +169,25 @@ function AdminForm({ point, onSave, onCancel }: { point: PointOfSale | null, onS
     }
   }, [point]);
 
+  const formatPhone = (value: string) => {
+    // Remove tudo que não é número
+    const numbers = value.replace(/\D/g, '');
+
+    // Limita a 11 dígitos (DD + 9 + 8 dígitos)
+    const truncated = numbers.slice(0, 11);
+
+    // Aplica a máscara: (XX) X XXXX-XXXX
+    if (truncated.length <= 2) return truncated.length > 0 ? `(${truncated}` : '';
+    if (truncated.length <= 3) return `(${truncated.slice(0, 2)}) ${truncated.slice(2)}`;
+    if (truncated.length <= 7) return `(${truncated.slice(0, 2)}) ${truncated.slice(2, 3)} ${truncated.slice(3)}`;
+    return `(${truncated.slice(0, 2)}) ${truncated.slice(2, 3)} ${truncated.slice(3, 7)}-${truncated.slice(7)}`;
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const masked = formatPhone(e.target.value);
+    setFormData({ ...formData, phone: masked });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -215,7 +234,14 @@ function AdminForm({ point, onSave, onCancel }: { point: PointOfSale | null, onS
       </div>
       <div>
         <label className="block text-xs font-bold text-gray-600 uppercase mb-1">Telefone</label>
-        <input required type="text" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full bg-gray-50 border-2 border-gray-200 rounded-xl p-3 focus:border-blue-500 focus:ring-0 outline-none transition-colors" />
+        <input
+          required
+          type="text"
+          placeholder="(31) 9 9999-9999"
+          value={formData.phone}
+          onChange={handlePhoneChange}
+          className="w-full bg-gray-50 border-2 border-gray-200 rounded-xl p-3 focus:border-blue-500 focus:ring-0 outline-none transition-colors"
+        />
       </div>
       <div>
         <label className="block text-xs font-bold text-gray-600 uppercase mb-1">Cidade</label>

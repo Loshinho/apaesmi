@@ -78,9 +78,20 @@ export default function App() {
       const pts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as PointOfSale));
       setPoints(pts);
       setLoading(false);
+    }, (error) => {
+      console.error("Firestore Error:", error);
+      setLoading(false);
     });
 
-    return () => unsubscribe();
+    // Timeout de segurança: se não carregar em 5 segundos, libera a tela
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+
+    return () => {
+      unsubscribe();
+      clearTimeout(timeout);
+    };
   }, []);
 
   const cities = useMemo(() => {
