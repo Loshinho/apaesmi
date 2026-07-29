@@ -13,6 +13,9 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+
+// Configuração para suportar bancos de dados com IDs personalizados (como o 'apaesmi')
+const dbId = import.meta.env.VITE_FIREBASE_FIRESTORE_DATABASE_ID || '(default)';
+export const db = getFirestore(app, dbId === '(default)' ? undefined : dbId);
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
